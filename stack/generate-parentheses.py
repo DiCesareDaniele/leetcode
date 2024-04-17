@@ -6,13 +6,13 @@ class Solution:
     # pylint: disable-next=invalid-name
     def generateParenthesis(self, n: int) -> list[str]:
         out = []
-        def helper(acc: str, opened: int, n: int):
+        def generate_helper(acc: str, opened: int, n: int):
             if len(acc) == 2 * n:
                 out.append(acc)
                 return
             if opened < n:
-                helper(acc + "(", opened + 1, n)
+                generate_helper(acc + "(", opened + 1, n)
             if len(acc) < 2 * opened:
-                helper(acc + ")", opened, n)
-        helper("", 0, n)
+                generate_helper(acc + ")", opened, n)
+        generate_helper("", 0, n)
         return out
