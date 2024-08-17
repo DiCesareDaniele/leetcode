@@ -15,10 +15,12 @@ class Solution:
             if visited[i][j] or word[k] != board[i][j]:
                 return False
             visited[i][j] = True
-            if exist_helper(i + 1, j, k + 1) \
-                or exist_helper(i - 1, j, k + 1) \
-                or exist_helper(i, j + 1, k + 1) \
-                or exist_helper(i, j - 1, k + 1):
+            if (
+                exist_helper(i + 1, j, k + 1) or
+                exist_helper(i - 1, j, k + 1) or
+                exist_helper(i, j + 1, k + 1) or
+                exist_helper(i, j - 1, k + 1)
+            ):
                 return True
             visited[i][j] = False
             return False
